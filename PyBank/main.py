@@ -19,19 +19,19 @@ with open(csvpath, newline='') as csvfile:
 #Loop Through data
     for row in csv_reader:
         month += 1 #adds up all the months
-        current = int(row[1]) #
-        cash += current
-        month_list.append(row[0])
-        #diff from each month
-        if previous != 0:
-            difference = current - previous
-            previous = current
+        current = int(row[1]) 
+        cash += current #sums the cash
+        month_list.append(row[0]) #add a new month to the end of the months_list
+        #calculate the difference in profit/loss bewteen each month
+        if previous != 0: # if the pervious month is not equal to 0
+            difference = current - previous #then calculate the difference by taking the current difference subtracting the pervious 
+            previous = current #the previous difference is the current differnce, this will give us the change for each month
         else:
-            difference = 0
+            difference = 0 #if the difference is 0 then the pervious is 0 the previous difference is the current amount 
             previous = current  
-        diff_list.append(difference)
-        
-    average = round(sum(diff_list) / (month - 1),2)
+        diff_list.append(difference) #add the differences from each month to the end of the diff_list
+    #find the average change of profit/lost between each month    
+    average = round(sum(diff_list) / (month - 1),2) 
 
 #locate greatest increase/decrease in profits
 greatest_increase = max(diff_list)
