@@ -31,7 +31,6 @@ with open(csvpath, newline='') as csvfile:
 #Loop through data
     for row in csvreader:
         votes += 1 #Counts total number of votes. 
-                   #(Notes to self, using print(votes) is a bad idea. It will just start a long print of how many votes there are)
         candidate = row[2] #gets just the candidate away from the other columns.
                            #since print will show what each person voted for we now have to add up all of those votes
         if candidate not in election_result: #adds up how many times the candidate is in row [2], puts them into a dictionary
